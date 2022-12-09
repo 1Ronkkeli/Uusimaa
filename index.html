@@ -8,6 +8,9 @@
 </head>
 
 <body>
+
+  <div class="loader" > </div>
+  <div class="loader2" ></div>
   
   <img id="banner" src="https://img.desync.me/uusimaa/uusimaa-rp-2-768x432.png" alt="uusimaa" width="550" height="300">
 
@@ -15,15 +18,116 @@
 
   <h1 id="below"> Nopeasti kasvava suomalainen FiveM Yhteisö </h1>
   
-  <a id="dsc" href="https://discord.gg/UTp7dUMSdS" target="_blank"><img src="https://www.svgrepo.com/show/331368/discord-v2.svg" width="64" height="64"></a>
+  <a id="dsc" href="https://discord.gg/UTp7dUMSdS" target="_blank"><img src="/img/uusimaa-rp-2-768x432 (1).png" width="64" height="64"></a>
 
+  <
   
   <style> 
 
     body {
       background-color: black;
+      overflow: hidden;
     }
 
+    html, body {
+    height: 100%;
+    width: 100%;
+    background-color: #000000;
+    overflow:scroll;
+    overflow: hidden;
+    }
+
+
+
+    
+@keyframes loading {
+  from {
+    transform: rotate(2turn);
+   
+  }
+  
+  to {
+    transform: rotate(1turn);
+    
+   
+  }
+}
+
+@keyframes loading2 {
+  from {
+    transform: rotate(0turn);
+   
+  }
+  
+  to {
+    transform: rotate(1turn);
+    
+   
+  }
+}
+
+
+
+@keyframes loading {
+  from {
+    transform: rotate(0turn);
+   
+  }
+  
+  to {
+    transform: rotate(1turn);
+    
+   
+  }
+}
+
+.loader--hidden {
+  
+  opacity: 0;
+  visibility: hidden;
+  
+  animation: loading 7s linear infinite;
+  animation: loading2 7s linear infinite;
+  transition:ease-in-out 0s ,visibility 0s;
+  transition-delay: 7s;
+  overflow: hidden;
+  overflow-y: hidden;
+  
+}
+    
+  .loader {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    overflow-y: hidden;
+  }
+
+  .loader::after {
+  content: "";
+  width: 65px;
+  height: 65px;
+  border: 10px solid #c800ff;
+  animation: fadeIn 2s;
+  -webkit-animation: fadeIn 2s;
+  -moz-animation: fadeIn 2s;
+  -o-animation: fadeIn 2s;
+  -ms-animation: fadeIn 2s;
+  border-top-color: #0d0d0d;
+  border-radius: 50%;
+  overflow: hidden;
+  overflow-y: hidden;
+}
+
+  
+  
+  .loader {
+    align-items: center;
+    height: 100%;
+    
+  
+    overflow: hidden;
+    overflow-y: hidden;
+  }
 
     #dsc {
       
@@ -125,6 +229,25 @@
 
 
   <script>
+
+
+    document.addEventListener('contextmenu', event => event.preventDefault());
+
+
+
+window.addEventListener("load", () => {
+  
+  const loader = document.querySelector(".loader");
+  
+  loader.classList.add("loader--hidden");
+  
+  loader.addEventListener("transitionend", () => {
+    
+    
+    document.body.removeChild(loader);
+  });
+});
+
 
     
   </script>
